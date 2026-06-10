@@ -18,16 +18,17 @@ reduction.
 Solves for expensive-model waste: Fable should spend tokens on judgment, not on
 reading every file, reducing every log, or manually running every browser check.
 
+![Fable orchestrator diagram](skills/efficient-fable/assets/fable-orchestrator.png)
+
 ### [`/efficient-frontier`](skills/efficient-frontier/README.md)
 
-Apply the same orchestration pattern to any high-cost frontier model: preserve
-the expensive model for planning, tradeoffs, integration, validation strategy,
-and final review; use cheaper agents for bounded heavy lifting.
+Apply the same orchestration as `/efficient-fable` to any high-cost frontier
+model: preserve the expensive model for planning, tradeoffs, integration,
+validation strategy, and final review; use cheaper agents for bounded heavy
+lifting.
 
 Solves for broad work that can be parallelized without asking the most expensive
 model to do every scan and every edit itself.
-
-![Fable orchestrator diagram](skills/efficient-fable/assets/fable-orchestrator.png)
 
 ### [`/stay-within-limits`](skills/stay-within-limits/README.md)
 
@@ -87,54 +88,35 @@ Example yellow status:
 
 ## Install
 
-Install the collection:
+Run the installer:
 
 ```sh
-agent-native skills add BuilderIO/skills
+npx @agent-native/skills add
 ```
 
-Pick the skills you want, choose Codex, Claude Code, or both, and decide whether
-to add managed `AGENTS.md` / `CLAUDE.md` instruction blocks for always-on
-conventions.
+The installer walks you through the choices:
 
-Useful one-liners:
+- Which skills to install.
+- Codex, Claude Code, or both.
+- User-level or project-level install.
+- Whether to add managed `AGENTS.md` / `CLAUDE.md` instruction blocks when the
+  selected skills have always-on guidance.
+- Whether to add the PR Visual Recap GitHub Action when `/visual-recap` is
+  selected.
+
+Skip the picker with `--skill`:
 
 ```sh
-agent-native skills add BuilderIO/skills --skill efficient-fable --update-instructions
-agent-native skills add BuilderIO/skills --skill stay-within-limits --update-instructions
-agent-native skills add BuilderIO/skills --skill quick-recap --update-instructions
-agent-native skills add BuilderIO/skills --skill visual-recap --with-github-action
+npx @agent-native/skills add --skill quick-recap
+npx @agent-native/skills add --skill visual-recap --with-github-action
 ```
 
-Instruction-only fallback:
+Useful flags:
 
-```sh
-npx @agent-native/skills@latest add BuilderIO/skills
-```
-
-The open Vercel skills installer can also copy the skill folders, but it does
-not manage `AGENTS.md` / `CLAUDE.md` blocks or write the Visual Recap workflow:
-
-```sh
-npx skills add BuilderIO/skills --skill quick-recap
-```
-
-## Sync Agent Native Plan Skills
-
-`/visual-plan` and `/visual-recap` are copied from Agent Native. From this repo:
-
-```sh
-npm run sync:agent-native-plan-skills
-```
-
-The sync script defaults to `../agent-native/framework`. Override the source
-with a path argument or environment variable:
-
-```sh
-AGENT_NATIVE_FRAMEWORK_PATH=/path/to/agent-native/framework npm run sync:agent-native-plan-skills
-npm run sync:agent-native-plan-skills -- /path/to/agent-native/framework
-```
-
-In the Agent Native repo, a workflow opens or updates a PR here whenever the
-canonical visual skill files change on `main`. Human-facing `README.md` files in
-the public repo are preserved as documentation overlays during sync.
+- `--skill <name>` installs one skill directly. Repeat it to install multiple.
+- `--scope project` installs into the current repo instead of your user config.
+- `--client codex`, `--client claude-code`, or `--client all` chooses the agent
+  client target.
+- `--update-instructions` accepts managed instruction updates without prompting.
+- `--with-github-action` adds the optional PR Visual Recap workflow when
+  `/visual-recap` is installed.

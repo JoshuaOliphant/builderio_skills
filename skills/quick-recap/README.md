@@ -63,7 +63,7 @@ I cannot continue the deployment setup without the production API key.
 ## Install
 
 ```sh
-agent-native skills add BuilderIO/skills --skill quick-recap --update-instructions
+npx @agent-native/skills add --skill quick-recap --update-instructions
 ```
 
 Use `--update-instructions`; copying the skill alone does not make the footer

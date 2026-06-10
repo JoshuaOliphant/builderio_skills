@@ -1,13 +1,11 @@
 # /efficient-frontier
 
-Use any expensive frontier model as an orchestrator and reviewer, not as the
-default worker for every token-heavy pass.
+Apply the same orchestration as `/efficient-fable` to any high-cost frontier
+model.
 
 `/efficient-frontier` is the model-agnostic version of `/efficient-fable`. It
 works for any high-cost model where the expensive part should be reserved for
 judgment, synthesis, integration, and final quality.
-
-![Frontier orchestrator diagram](../efficient-fable/assets/fable-orchestrator.png)
 
 ## What It Does
 
@@ -48,7 +46,7 @@ and spot-check verification before presenting the final answer.
 ## Install
 
 ```sh
-agent-native skills add BuilderIO/skills --skill efficient-frontier --update-instructions
+npx @agent-native/skills add --skill efficient-frontier --update-instructions
 ```
 
 Use `--update-instructions` when you want the orchestration convention added to

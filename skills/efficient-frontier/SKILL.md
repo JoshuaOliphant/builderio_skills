@@ -1,6 +1,6 @@
 ---
 name: efficient-frontier
-description: Use when running any expensive frontier model on codebase-heavy or token-heavy work and the user wants a model-agnostic pattern for delegating research, coding, and testing to cheaper subagents.
+description: Apply the same orchestration as `/efficient-fable` to any high-cost frontier model: delegate research, coding, and testing to cheaper subagents while keeping planning, synthesis, and final review with the expensive model.
 ---
 
 # Efficient Frontier
