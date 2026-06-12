@@ -54,7 +54,7 @@ usage window matters more than keeping the prompt cache warm.
 ## Install
 
 ```sh
-npx @agent-native/skills add --skill stay-within-limits --update-instructions
+npx @agent-native/skills@latest add --skill stay-within-limits --update-instructions
 ```
 
 Use `--update-instructions` when you want the 5-hour and weekly limit convention

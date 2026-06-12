@@ -40,7 +40,7 @@ actual codebase.
 ## Install
 
 ```sh
-npx @agent-native/skills add --skill visual-plan
+npx @agent-native/skills@latest add --skill visual-plan
 ```
 
 The skill expects the Agent-Native Plan MCP connector to be available when it is

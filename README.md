@@ -10,7 +10,7 @@ to your project, and let the model keep room to think.
 ### Quick install all skills
 
 ```sh
-npx @agent-native/skills add
+npx @agent-native/skills@latest add
 ```
 
 See the [full CLI docs below](#install).
@@ -97,7 +97,7 @@ Example yellow status:
 Run the installer:
 
 ```sh
-npx @agent-native/skills add
+npx @agent-native/skills@latest add
 ```
 
 The installer walks you through the choices:
@@ -113,14 +113,14 @@ The installer walks you through the choices:
 Skip the picker with `--skill`:
 
 ```sh
-npx @agent-native/skills add --skill quick-recap
-npx @agent-native/skills add --skill visual-recap --with-github-action
+npx @agent-native/skills@latest add --skill quick-recap
+npx @agent-native/skills@latest add --skill visual-recap --with-github-action
 ```
 
 You can also use Vercel's `skills` CLI for a plain skill-folder copy:
 
 ```sh
-npx skills add BuilderIO/skills --skill quick-recap
+npx skills@latest add BuilderIO/skills --skill quick-recap
 ```
 
 That installer is useful for quick copying, but it does not add the managed

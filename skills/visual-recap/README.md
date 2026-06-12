@@ -42,7 +42,7 @@ can generate a visual recap from a pull request diff.
 ## Install
 
 ```sh
-npx @agent-native/skills add --skill visual-recap --with-github-action
+npx @agent-native/skills@latest add --skill visual-recap --with-github-action
 ```
 
 The skill expects the Agent-Native Plan MCP connector to be available when it is
