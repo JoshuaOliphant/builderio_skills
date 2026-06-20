@@ -8,15 +8,15 @@ This document explains how to report issues, propose changes, and get your pull 
 
 ## Table of contents
 
-- How can I contribute?
-- Code of conduct
-- Filing issues
-- Proposing changes (pull requests)
-- Development setup
-- Tests and CI
-- Code style & commit messages
-- Review process & expectations
-- License
+- [How can I contribute?](#how-can-i-contribute)
+- [Code of conduct](#code-of-conduct)
+- [Filing issues](#filing-issues)
+- [Proposing changes (pull requests)](#proposing-changes-pull-requests)
+- [Development setup](#development-setup)
+- [Verifying changes](#verifying-changes)
+- [Code style & commit messages](#code-style--commit-messages)
+- [Review process & expectations](#review-process--expectations)
+- [License](#license)
 
 ---
 
@@ -25,7 +25,7 @@ This document explains how to report issues, propose changes, and get your pull 
 You can help in many ways:
 
 - Report bugs with a minimal reproducible example.
-- Add or improve tests and documentation.
+- Add or improve documentation and skill guidelines.
 - Fix bugs and implement small features via PRs.
 - Review other people's PRs.
 
@@ -54,10 +54,10 @@ If you're proposing a feature, explain the use case and suggested API or UX.
 
 Follow these steps to propose changes:
 
-1. Fork the repository and create a branch with a descriptive name (e.g. `fix/null-email-parsing` or `feat/auth-retry`).
+1. Fork the repository and create a branch with a descriptive name (e.g. `fix/missing-docs` or `feat/new-skill`).
 2. Keep changes small and focused — one logical change per PR. Smaller PRs get reviewed faster.
-3. Update or add tests for your change. If you change behavior, add tests that show the old (failing) behavior and the new (passing) behavior.
-4. Run linters/formatters and make sure the code builds and tests pass locally.
+3. Update or add necessary documentation for your change. 
+4. Run `npm run check` and make sure it passes locally before committing.
 5. Open a pull request with a clear title and a short summary. Use this structure in the PR body:
 
    - Summary (one-line)
@@ -73,50 +73,7 @@ We recommend creating draft PRs for early feedback on larger changes.
 ## Development setup
 
 1. Clone and install dependencies:
-
-   git clone https://github.com/BuilderIO/skills.git
+   ```bash
+   git clone [https://github.com/BuilderIO/skills.git](https://github.com/BuilderIO/skills.git)
    cd skills
    npm install
-
-2. Create a feature branch:
-
-   git checkout -b feat/your-feature
-
-3. Run linters and tests locally (see Tests and CI section).
-
-Adjust these commands if the repository uses Yarn, pnpm, or another package manager.
-
-## Tests and CI
-
-- Add unit/integration tests for any behavioral change.
-- Keep tests deterministic and fast when possible.
-- Ensure the CI is green before requesting a review. CI failures slow down reviews and merging.
-
-If CI or linting fails for your PR, fix the issues locally and push an update.
-
-## Code style & commit messages
-
-- Follow the existing code style. Use the project's linter and formatter configuration (Prettier/ESLint) if present.
-- Keep commits focused and meaningful. Squash WIP/fixup commits before final review if appropriate.
-- Use conventional commit messages where possible, for example:
-
-  - feat: add new feature
-  - fix: bugfix
-  - docs: documentation only changes
-  - test: adding or updating tests
-  - chore: build or tooling changes
-
-## Review process & expectations
-
-- Request reviews from 1–2 relevant reviewers. Mention specific files or areas to check in your PR description.
-- Be responsive to review comments — reply with context, update code, or ask clarifying questions.
-- Keep PRs small so reviewers can finish quickly (aim for ~10–30 minutes of review time).
-- If you disagree with feedback, explain your reasoning with examples and tests and be open to compromise.
-
-## License
-
-By contributing, you agree that your contributions will be licensed under this project's license.
-
----
-
-Thank you for helping improve BuilderIO/skills — we appreciate your contributions!
