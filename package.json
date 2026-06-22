@@ -8,8 +8,5 @@
   "scripts": {
     "sync:agent-native-plan-skills": "node scripts/sync-agent-native-plan-skills.mjs",
     "check": "node scripts/sync-agent-native-plan-skills.mjs --check"
-  },
-  "dependencies": {
-    "@agent-native/core": "^0.63.4"
   }
 }
