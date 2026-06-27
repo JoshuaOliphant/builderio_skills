@@ -43,11 +43,4 @@ verification commands, and stop conditions.
 The frontier model should reopen important cited files, review high-risk diffs,
 and spot-check verification before presenting the final answer.
 
-## Install
-
-```sh
-npx @agent-native/skills@latest add --skill efficient-frontier --update-instructions
-```
-
-Use `--update-instructions` when you want the orchestration convention added to
-project instructions.
+Install via the Claude Code plugin marketplace (see the root README), or copy `skills/efficient-frontier/` into your agent's skills directory.

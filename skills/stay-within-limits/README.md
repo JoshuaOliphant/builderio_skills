@@ -51,11 +51,4 @@ conditions so the resumed agent does not depend on old chat momentum.
 For waits longer than an hour, chain wakeups. For budget pauses, preserving the
 usage window matters more than keeping the prompt cache warm.
 
-## Install
-
-```sh
-npx @agent-native/skills@latest add --skill stay-within-limits --update-instructions
-```
-
-Use `--update-instructions` when you want the 5-hour and weekly limit convention
-added to `AGENTS.md` or `CLAUDE.md` automatically.
+Install via the Claude Code plugin marketplace (see the root README), or copy `skills/stay-within-limits/` into your agent's skills directory.

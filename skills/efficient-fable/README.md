@@ -65,11 +65,4 @@ Rendered PNGs:
 and
 [`assets/fable-orchestrator-dark.png`](assets/fable-orchestrator-dark.png)
 
-## Install
-
-```sh
-npx @agent-native/skills@latest add --skill efficient-fable --update-instructions
-```
-
-Use `--update-instructions` when you want the Fable delegation convention added
-to `AGENTS.md` or `CLAUDE.md` automatically.
+Install via the Claude Code plugin marketplace (see the root README), or copy `skills/efficient-fable/` into your agent's skills directory.

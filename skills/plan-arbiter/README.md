@@ -34,8 +34,4 @@ alternative to evaluate.
 The skill returns a short decision memo: decision, why, execution plan, borrowed
 pieces, rejected ideas, verification, and executor recommendation.
 
-## Install
-
-```sh
-npx @agent-native/skills@latest add --skill plan-arbiter
-```
+Install via the Claude Code plugin marketplace (see the root README), or copy `skills/plan-arbiter/` into your agent's skills directory.

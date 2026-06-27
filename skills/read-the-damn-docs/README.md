@@ -47,8 +47,4 @@ These should trigger docs before code:
 - Implementing a repo-specific system where local docs, schemas, or generated
   clients define the contract.
 
-## Install
-
-```sh
-npx @agent-native/skills@latest add --skill read-the-damn-docs
-```
+Install via the Claude Code plugin marketplace (see the root README), or copy `skills/read-the-damn-docs/` into your agent's skills directory.

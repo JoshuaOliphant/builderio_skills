@@ -36,8 +36,4 @@ audit.
 - Audit and fix: repair clear gaps with targeted validation.
 - Compare: evaluate multiple sessions against the same request.
 
-## Install
-
-```sh
-npx @agent-native/skills@latest add --skill agent-watchdog
-```
+Install via the Claude Code plugin marketplace (see the root README), or copy `skills/agent-watchdog/` into your agent's skills directory.

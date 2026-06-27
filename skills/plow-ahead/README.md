@@ -35,8 +35,4 @@ wait for approval before implementation.
 The final response should make the autonomous work easy to audit: goal, key
 decisions, assumptions, files changed, validation run, and remaining risk.
 
-## Install
-
-```sh
-npx @agent-native/skills@latest add --skill plow-ahead
-```
+Install via the Claude Code plugin marketplace (see the root README), or copy `skills/plow-ahead/` into your agent's skills directory.
