@@ -47,7 +47,6 @@ Task dependency: Phase A (guard scripts) first so later phases can verify themse
 - [ ] **Step 1: Write the failing test**
 
 ```js
-// scripts/check-no-builder.test.mjs
 // ABOUTME: Tests for the forbidden-string detector that keeps Builder/agent-native
 // ABOUTME: references out of shipped skill files and manifests.
 import { test } from "node:test";
@@ -59,6 +58,10 @@ test("flags agent-native references", () => {
     findForbidden("install with npx @agent-native/skills@latest add"),
     ["@agent-native"],
   );
+});
+
+test("flags a bare agent-native reference", () => {
+  assert.deepEqual(findForbidden("the agent-native framework path"), ["agent-native"]);
 });
 
 test("flags builder.io and plan.agent-native and builderio", () => {
@@ -86,7 +89,6 @@ Expected: FAIL — `Cannot find module './check-no-builder.mjs'` (or `findForbid
 - [ ] **Step 3: Write minimal implementation**
 
 ```js
-// scripts/check-no-builder.mjs
 // ABOUTME: Zero-dependency guard that fails when shipped files reference Builder.io
 // ABOUTME: or agent-native, so the de-coupled fork cannot silently regress.
 import { readdir, readFile, stat } from "node:fs/promises";
@@ -96,7 +98,8 @@ import { fileURLToPath } from "node:url";
 const FORBIDDEN = [
   { label: "builder.io", re: /builder\.io/i },
   { label: "builderio", re: /builderio/i },
-  { label: "agent-native", re: /agent-native/i },
+  // lookbehind/ahead so this does not double-match @agent-native / plan.agent-native
+  { label: "agent-native", re: /(?<![@.])agent-native(?!\.)/i },
   { label: "@agent-native", re: /@agent-native/i },
   { label: "plan.agent-native", re: /plan\.agent-native/i },
 ];
@@ -193,7 +196,6 @@ Note: the repo-wide scan will still report existing hits until later tasks de-br
 - [ ] **Step 1: Write the failing test**
 
 ```js
-// scripts/validate-artifact.test.mjs
 // ABOUTME: Tests for the self-contained-HTML validator used by the visual skills
 // ABOUTME: to prove a generated plan/recap has no external dependencies.
 import { test } from "node:test";
@@ -237,10 +239,11 @@ Expected: FAIL — module not found.
 - [ ] **Step 3: Write minimal implementation**
 
 ```js
-// scripts/validate-artifact.mjs
 // ABOUTME: Zero-dependency linter that proves an HTML artifact is self-contained:
 // ABOUTME: valid root tags and no external (http/https/protocol-relative) references.
 import { readFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 // Matches src=, href=, and css url(...) targets that escape the file.
 const EXTERNAL = /(?:\b(?:src|href)\s*=\s*["']|url\(\s*["']?)\s*(https?:|\/\/)/gi;
@@ -278,7 +281,7 @@ async function main() {
   }
 }
 
-if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split("/").pop())) {
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   await main();
 }
 ```
