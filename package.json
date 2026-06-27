@@ -1,12 +1,12 @@
 {
-  "name": "@builder.io/skills",
+  "name": "agent-skills",
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Public Builder skills for docs-first discipline, autonomous execution, cross-agent review, efficient frontier-model orchestration, clear status recaps, and Agent Native Plan workflows.",
+  "description": "Small, composable, self-contained skills for coding agents. No external services.",
   "license": "MIT",
   "scripts": {
-    "sync:agent-native-plan-skills": "node scripts/sync-agent-native-plan-skills.mjs",
-    "check": "node scripts/sync-agent-native-plan-skills.mjs --check"
+    "test": "node --test",
+    "check": "node --test && node scripts/check-no-builder.mjs"
   }
 }

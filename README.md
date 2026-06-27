@@ -7,15 +7,6 @@ matters: orchestration, review, planning, validation, docs discipline, and clear
 communication. They are not a giant process framework. Install the pieces you
 want, adapt them to your project, and let the model keep room to think.
 
-### Quick install recommended skills
-
-```sh
-npx @agent-native/skills@latest add
-```
-
-The interactive picker puts `/visual-plan` and `/visual-recap` first and selects
-only those by default. See the [full CLI docs below](#install).
-
 ## Skills
 
 ### [`/visual-plan`](skills/visual-plan/README.md)
@@ -31,7 +22,7 @@ changes start.
   <img alt="Visual plan review surface" src="media/visual-plan.png">
 </picture>
 
-Visual plans are MDX, customizable with your own components, and are viewed with the [Agent-Native plans app](https://www.agent-native.com/docs/template-plan). [Source here](https://github.com/BuilderIO/agent-native/)
+Produces a self-contained `plan.html` you open locally — no account, no server, no external services.
 
 ### [`/visual-recap`](skills/visual-recap/README.md)
 
@@ -47,15 +38,7 @@ raw line-by-line review.
   <img alt="Visual recap review surface animation" src="media/visual-recap.gif">
 </picture>
 
-Visual recaps are MDX, customizable with your own components, and are viewed with the [Agent-Native plans app](https://www.agent-native.com/docs/template-plan). [Source here](https://github.com/BuilderIO/agent-native/)
-
-You can also install a GitHub action for these to be automatically generated for every PR with
-
-```sh
-npx @agent-native/skills@latest add
-```
-
-![Example of a visual plan posted to a PR](https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2Fcf9bac396cf24a4ba976fc331af6fc5d)
+Produces a self-contained `recap.html` from a branch/PR/commit diff, opened locally.
 
 ### [`/agent-watchdog`](skills/agent-watchdog/README.md)
 
@@ -151,64 +134,19 @@ usually the first move.
 
 ## Install
 
-Run the installer:
+Install as a Claude Code plugin marketplace from this repository:
 
 ```sh
-npx @agent-native/skills@latest add
+/plugin marketplace add joshuaoliphant/agent-skills
+/plugin install agent-skills@agent-skills
 ```
 
-The picker shows the full catalog, with `/visual-plan` and `/visual-recap` at
-the top and preselected by default. Toggle any additional skills you want.
-
-The installer walks you through the choices:
-
-- Which skills to install.
-- Where visual plans and recaps should live: hosted shareable links
-  (recommended), local files only, or a self-hosted/custom Plan app.
-- Agent Skills through the shared `.agents` path for Codex, Pi, Cursor,
-  OpenCode, GitHub Copilot / VS Code, and similar agents, plus Claude Code's
-  native skills path when selected.
-- User-level or project-level install.
-- Whether to add managed `AGENTS.md` / `CLAUDE.md` instruction blocks when the
-  selected skills have always-on guidance.
-- Whether to add the PR Visual Recap GitHub Action when `/visual-recap` is
-  selected.
-
-Skip the picker with `--skill`:
+Skills are then namespaced under the plugin (for example, `/agent-skills:quick-recap`). Pull updates with:
 
 ```sh
-npx @agent-native/skills@latest add --skill quick-recap
-npx @agent-native/skills@latest add --skill visual-recap --with-github-action
+/plugin marketplace update agent-skills
 ```
 
-You can also use Vercel's `skills` CLI for a plain skill-folder copy:
+You can also copy a `skills/<name>/` folder directly into your agent's skills directory. (`visual-recap` shares its reference docs with `visual-plan`, so copy both of those together.)
 
-```sh
-npx skills@latest add BuilderIO/skills --skill quick-recap
-```
-
-That installer is useful for quick copying, but it does not add the managed
-`AGENTS.md` / `CLAUDE.md` instruction blocks or the PR Visual Recap GitHub
-Action that pair well with these skills.
-
-### Install as a Claude Code plugin
-
-This repo is also a [Claude Code plugin
-marketplace](https://code.claude.com/docs/en/plugin-marketplaces). To install
-all of the skills as a managed, updatable plugin, run these inside Claude Code:
-
-```sh
-/plugin marketplace add BuilderIO/skills
-/plugin install builder-skills@builder-skills
-```
-
-The skills are then namespaced under the plugin (for example,
-`/builder-skills:quick-recap`). Pull future updates with:
-
-```sh
-/plugin marketplace update builder-skills
-```
-
-This path does not add the managed `AGENTS.md` / `CLAUDE.md` instruction blocks
-or the PR Visual Recap GitHub Action; use the `npx @agent-native/skills`
-installer above if you want those.
+> Forked from https://github.com/BuilderIO/skills and de-coupled to run fully locally. <!-- provenance -->

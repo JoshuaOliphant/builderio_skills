@@ -1,28 +1,25 @@
 {
-  "name": "builder-skills",
+  "name": "agent-skills",
   "version": "0.0.0",
-  "description": "Public Builder skills for docs-first discipline, autonomous execution, cross-agent review, efficient agent workflows, clear status recaps, and Agent-Native Plan modes.",
+  "description": "Small, composable, self-contained skills for coding agents.",
   "author": {
-    "name": "Builder.io",
-    "url": "https://www.builder.io"
+    "name": "Joshua Oliphant"
   },
-  "homepage": "https://github.com/BuilderIO/skills",
   "license": "MIT",
-  "keywords": ["builder", "skills", "agent-workflows", "subagents"],
+  "keywords": ["skills", "agent-workflows", "subagents"],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Builder Skills",
-    "shortDescription": "Builder skills for efficient agent workflows.",
-    "longDescription": "A small public skill collection for docs-first discipline, autonomous execution, cross-agent watchdogging and plan arbitration, efficient frontier-model orchestration, clear status recaps, and Agent-Native Plan workflows with hosted, local-files, or self-hosted modes.",
-    "developerName": "Builder.io",
+    "displayName": "Agent Skills",
+    "shortDescription": "Self-contained skills for efficient agent workflows.",
+    "longDescription": "A small skill collection for docs-first discipline, autonomous execution, cross-agent watchdogging and plan arbitration, efficient model orchestration, clear status recaps, and local visual plan/recap workflows that produce self-contained HTML.",
+    "developerName": "Joshua Oliphant",
     "category": "Productivity",
     "capabilities": ["Read", "Write"],
-    "websiteURL": "https://github.com/BuilderIO/skills",
     "defaultPrompt": [
-      "Use Builder Skills when a matching skill applies",
+      "Use a matching skill when one applies",
       "Web-search official docs before relying on memory for external APIs",
       "Install the quick recap status convention",
-      "Use efficient Fable orchestration"
+      "Use efficient model orchestration"
     ]
   }
 }

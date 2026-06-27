@@ -45,11 +45,4 @@ Red means the agent is blocked on user input:
 🔴 Need the production API key to continue
 ```
 
-## Install
-
-```sh
-npx @agent-native/skills@latest add --skill quick-recap --update-instructions
-```
-
-Use `--update-instructions`; copying the skill alone does not make the footer
-automatic.
+Install via the Claude Code plugin marketplace (see the root README), or copy `skills/quick-recap/` into your agent's skills directory.
