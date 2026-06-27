@@ -122,7 +122,7 @@ Workflow:
    (macOS) / `xdg-open` (Linux) on the file, else report the absolute path.
    Then ask the user to review and approve before you write code — presenting
    the plan IS the approval gate.
-5. Iterate from feedback: the user comments in chat or on the PR. Edit
+5. Iterate from feedback: the user comments in chat. Edit
    `plan.html` directly, re-validate, and reopen. The document is the source of
    truth; keep it standalone (no "this revision changes…" language).
 
