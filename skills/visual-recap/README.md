@@ -28,8 +28,8 @@ locally — no account, no server, no external services.
 ## What It Does
 
 - Reads the actual changed files and diff.
-- Publishes an interactive recap with file maps, diagrams, visual schema
-  maps, API diffs, annotated diffs, UI state summaries, and focused key changes.
+- Produces a self-contained interactive recap with file maps, diagrams, visual
+  schema maps, API diffs, annotated diffs, UI state summaries, and focused key changes.
 - Keeps recaps substantial enough for real review without dumping every line.
 - Makes large changes consumable before a reviewer opens raw diff view.
 
@@ -48,5 +48,7 @@ the risky lines are. Then they can review the raw diff with a map in their head.
 
 ## Install
 
-Install via the Claude Code plugin marketplace (see the root README), or copy
-`skills/visual-recap/` into your agent's skills directory.
+Install via the Claude Code plugin marketplace (see the root README). This skill
+shares its reference docs with `visual-plan` (it reads
+`../visual-plan/references/`), so if you copy folders by hand, copy both
+`skills/visual-plan/` and `skills/visual-recap/` together.

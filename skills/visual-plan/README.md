@@ -26,7 +26,7 @@ no external services.
   design direction, or visual intake.
 - Uses custom components for diagrams, UI flows, API specs, schema maps,
   diffs, code annotations, and reviewer questions.
-- Publishes the result as an interactive review document instead of inline chat Markdown.
+- Produces a self-contained interactive review document instead of inline chat Markdown.
 - Keeps the plan as the approval gate before source edits begin.
 
 ## When To Use It

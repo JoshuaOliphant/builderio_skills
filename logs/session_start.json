@@ -1,0 +1,10 @@
+[
+  {
+    "session_id": "0e86546a-4463-48b9-9a0a-8330698f4447",
+    "transcript_path": "/Users/joshuaoliphant/.claude/projects/-Users-joshuaoliphant-Library-CloudStorage-Dropbox-python-workspace-builderio-skills/0e86546a-4463-48b9-9a0a-8330698f4447.jsonl",
+    "cwd": "/Users/joshuaoliphant/Library/CloudStorage/Dropbox/python_workspace/builderio_skills",
+    "hook_event_name": "SessionStart",
+    "source": "startup",
+    "model": "claude-opus-4-8[1m]"
+  }
+]

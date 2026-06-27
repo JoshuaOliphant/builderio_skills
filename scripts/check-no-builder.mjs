@@ -34,6 +34,7 @@ const SCAN = [
   ".claude-plugin",
   ".codex-plugin",
   ".agents",
+  ".github",
   "package.json",
   "README.md",
   "CONTRIBUTING.md",

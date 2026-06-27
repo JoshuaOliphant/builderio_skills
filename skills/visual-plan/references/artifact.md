@@ -22,7 +22,10 @@ plan. These are the non-negotiable correctness rules, not style rules.
    `<html>`, `<head>` (with `<meta charset="utf-8">` and a `<title>`), `<body>`.
 4. **Self-validate before handoff.** After writing the file, run
    `node scripts/validate-artifact.mjs plans/<slug>/plan.html` and fix any
-   reported violation before reporting the file to the user.
+   reported violation before reporting the file to the user. If that script is
+   not on hand (e.g. the skill was copied into another project), hand-check the
+   hard rules above instead: open the file and confirm no `http(s):`/`//` URLs in
+   any `src`/`href`/`url()`/`@import`/`<link>`/`<script src>`.
 
 ## Quality floor
 
