@@ -1,5 +1,9 @@
 # Skills for coding agents
 
+> **⚠️ Archived / moved.** These skills now live (improved) in the
+> [`oliphant-plugins`](https://github.com/JoshuaOliphant/claude-plugins) marketplace
+> as the `agent-skills` plugin. This repository is no longer maintained.
+
 Small, composable skills for coding agents.
 
 These skills are for teams that want the agent to stay sharp where judgment
