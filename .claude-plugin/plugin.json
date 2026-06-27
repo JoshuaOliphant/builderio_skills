@@ -1,14 +1,11 @@
 {
-  "name": "builder-skills",
-  "displayName": "Builder Skills",
-  "description": "Public Builder skills for docs-first discipline, autonomous execution, cross-agent review, efficient agent workflows, clear status recaps, and Agent-Native Plan modes.",
+  "name": "agent-skills",
+  "displayName": "Agent Skills",
+  "description": "Small, composable, self-contained skills for coding agents: docs-first discipline, autonomous execution, cross-agent review, efficient orchestration, clear status recaps, and local visual plan/recap modes.",
   "author": {
-    "name": "Builder.io",
-    "url": "https://www.builder.io"
+    "name": "Joshua Oliphant"
   },
-  "homepage": "https://github.com/BuilderIO/skills",
-  "repository": "https://github.com/BuilderIO/skills",
   "license": "MIT",
-  "keywords": ["builder", "skills", "agent-workflows", "subagents"],
+  "keywords": ["skills", "agent-workflows", "subagents"],
   "skills": "./skills/"
 }
