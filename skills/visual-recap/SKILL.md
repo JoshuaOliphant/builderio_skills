@@ -150,7 +150,8 @@ Choose the smallest visual surface that makes the review clear:
   state would only show absence without adding review value.
 - Use more than two wireframes when the UI change is flow-dependent, responsive,
   or stateful; show the meaningful states in order instead of forcing a single
-  before/after pair.
+  before/after pair. For a storyboard or flow sequence of multiple states, read
+  `../visual-plan/references/canvas.md` for the horizontal canvas layout.
 - For tiny surfaces like menus, popovers, dialogs, toasts, or panels, show the
   focused sub-surface. Do not redraw a full page unless placement in the page is
   itself part of the change.
