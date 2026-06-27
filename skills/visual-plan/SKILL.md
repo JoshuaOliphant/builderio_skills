@@ -1,9 +1,9 @@
 ---
 name: visual-plan
 description: >-
-  Turn a plan into a self-contained interactive HTML document (diagrams, file
-  maps, annotated code, wireframes, open questions) saved locally and opened in
-  the browser — no account or external service.
+  Use when turning a plan into a self-contained interactive HTML document
+  (diagrams, file maps, annotated code, wireframes, open questions) saved locally
+  and opened in the browser — no account or external service.
 ---
 
 # Visual Plan

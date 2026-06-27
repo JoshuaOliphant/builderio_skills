@@ -147,6 +147,6 @@ Skills are then namespaced under the plugin (for example, `/agent-skills:quick-r
 /plugin marketplace update agent-skills
 ```
 
-You can also copy any `skills/<name>/` folder directly into your agent's skills directory.
+You can also copy a `skills/<name>/` folder directly into your agent's skills directory. (`visual-recap` shares its reference docs with `visual-plan`, so copy both of those together.)
 
 > Forked from https://github.com/BuilderIO/skills and de-coupled to run fully locally. <!-- provenance -->

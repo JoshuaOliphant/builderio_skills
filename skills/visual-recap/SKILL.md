@@ -1,9 +1,9 @@
 ---
 name: visual-recap
 description: >-
-  Turn a PR/branch/commit diff into a self-contained interactive HTML recap
-  (annotated diffs, file maps, API/schema summaries, wireframes) saved locally
-  and opened in the browser.
+  Use when turning a PR/branch/commit diff into a self-contained interactive HTML
+  recap (annotated diffs, file maps, API/schema summaries, wireframes) saved
+  locally and opened in the browser.
 ---
 
 # Visual Recap

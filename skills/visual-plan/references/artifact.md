@@ -10,9 +10,11 @@ plan. These are the non-negotiable correctness rules, not style rules.
 
 1. **One file, everything inline.** All CSS in a `<style>` tag, all JS in a
    `<script>` tag, in the same file. No external `.css`/`.js`.
-2. **No external network references at all.** No `https://`, `http://`, or
-   `//host` URLs in `src`, `href`, `url(...)`, `@import`, `<link>`, or
-   `<script src>`. No Google Fonts, no CDN scripts, no remote images.
+2. **No external resource loads at all.** No `https://`, `http://`, or `//host`
+   URLs that fetch a resource: `src`, `srcset`, `<link href>`, `url(...)`,
+   `@import`, `<script src>`. No Google Fonts, no CDN scripts, no remote images.
+   (A navigational `<a href="https://…">` hyperlink is fine — it loads nothing,
+   so the page still renders fully offline.)
    - Images: inline as `data:` base64, or inline `<svg>`. Prefer drawn SVG/CSS
      over raster.
    - Fonts: use the system font stack
@@ -25,7 +27,11 @@ plan. These are the non-negotiable correctness rules, not style rules.
    reported violation before reporting the file to the user. If that script is
    not on hand (e.g. the skill was copied into another project), hand-check the
    hard rules above instead: open the file and confirm no `http(s):`/`//` URLs in
-   any `src`/`href`/`url()`/`@import`/`<link>`/`<script src>`.
+   any `src`/`srcset`/`<link href>`/`url()`/`@import`/`<script src>`. If the
+   validator flags an external URL that appears only inside an escaped code
+   sample (e.g. `&lt;img src="https://…"&gt;` shown in a `<pre>`), that is an
+   accepted false-positive of a regex (not full-parser) check — confirm it is
+   inert display text and disregard that one violation.
 
 ## Quality floor
 
