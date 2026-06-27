@@ -1,6 +1,8 @@
 // ABOUTME: Zero-dependency linter that proves an HTML artifact is self-contained:
 // ABOUTME: valid root tags and no external (http/https/protocol-relative) references.
 import { readFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 // Matches src=, href=, and css url(...) targets that escape the file.
 const EXTERNAL = /(?:\b(?:src|href)\s*=\s*["']|url\(\s*["']?)\s*(https?:|\/\/)/gi;
@@ -38,6 +40,6 @@ async function main() {
   }
 }
 
-if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split("/").pop())) {
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   await main();
 }
