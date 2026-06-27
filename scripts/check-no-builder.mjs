@@ -1,4 +1,3 @@
-// scripts/check-no-builder.mjs
 // ABOUTME: Zero-dependency guard that fails when shipped files reference Builder.io
 // ABOUTME: or agent-native, so the de-coupled fork cannot silently regress.
 import { readdir, readFile, stat } from "node:fs/promises";

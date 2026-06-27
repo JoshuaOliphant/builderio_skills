@@ -1,4 +1,3 @@
-// scripts/validate-artifact.test.mjs
 // ABOUTME: Tests for the self-contained-HTML validator used by the visual skills
 // ABOUTME: to prove a generated plan/recap has no external dependencies.
 import { test } from "node:test";

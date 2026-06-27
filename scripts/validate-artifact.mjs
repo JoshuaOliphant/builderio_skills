@@ -1,4 +1,3 @@
-// scripts/validate-artifact.mjs
 // ABOUTME: Zero-dependency linter that proves an HTML artifact is self-contained:
 // ABOUTME: valid root tags and no external (http/https/protocol-relative) references.
 import { readFile } from "node:fs/promises";

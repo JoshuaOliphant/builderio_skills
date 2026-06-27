@@ -1,4 +1,3 @@
-// scripts/check-no-builder.test.mjs
 // ABOUTME: Tests for the forbidden-string detector that keeps Builder/agent-native
 // ABOUTME: references out of shipped skill files and manifests.
 import { test } from "node:test";
@@ -10,6 +9,10 @@ test("flags agent-native references", () => {
     findForbidden("install with npx @agent-native/skills@latest add"),
     ["@agent-native"],
   );
+});
+
+test("flags a bare agent-native reference", () => {
+  assert.deepEqual(findForbidden("the agent-native framework path"), ["agent-native"]);
 });
 
 test("flags builder.io and plan.agent-native and builderio", () => {
