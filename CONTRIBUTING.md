@@ -1,4 +1,4 @@
-# Contributing to BuilderIO/skills
+# Contributing to agent-skills
 
 Thank you for your interest in contributing! We welcome contributors of all types — code, tests, documentation, and design — and appreciate your time and effort. This document explains how to report issues, propose changes, and get your pull requests reviewed and merged quickly.
 
@@ -67,44 +67,21 @@ We recommend creating draft PRs for early feedback on larger changes.
 
 ## Development setup
 
-1. Clone this repository:
+1. Set up this repository:
    ```bash
-   git clone https://github.com/BuilderIO/skills.git
    cd skills
    npm install
    ```
 
-2. Set up the agent-native framework path:
-
-   On Windows (Command Prompt):
-   ```DOS
-   git clone https://github.com/BuilderIO/agent-native.git ../agent-native
-   set AGENT_NATIVE_FRAMEWORK_PATH=../agent-native
-   ```
-   On Mac/Linux or PowerShell:
-   ```bash
-   git clone https://github.com/BuilderIO/agent-native.git ../agent-native
-   export AGENT_NATIVE_FRAMEWORK_PATH=../agent-native
-   ```
-
-   This environment variable is required for local checks to work properly. The skills repository depends on code from BuilderIO/agent-native, which is cloned separately rather than installed as a package.
-
 ## Repository workflows & checks
 
-This repository intentionally has zero standard npm dependencies. Instead, it uses specific scripts to sync and validate the skills structure.
+This repository intentionally has zero standard npm dependencies.
 
-- Running Local Checks: Before opening a PR, ensure your changes pass the local check using the environment variable you set in the step above:
+- Run local checks before opening a PR:
 ```bash
 npm run check
 ```
-
-This command runs the sync and validation checks specific to the skills repository. All checks must pass before submitting a pull request.
-
-What `npm run check` does:
-
-   - Syncs skill definitions with the agent-native visual plans
-   - Validates skill structure and configuration
-   - Ensures all changes are compatible with the agent-native framework
+This runs the unit tests (`node --test`) and the `check-no-builder` guard, which fails if any shipped file references the old external services.
 
 If the check fails, review the error messages and fix the issues before committing.
 
