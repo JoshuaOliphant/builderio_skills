@@ -3,14 +3,14 @@
 import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { isMain, reportResult } from "./lib.mjs";
 
+// Two entries cover every branded form: builder\.?io matches builder.io AND builderio
+// (dotless), and agent-native catches all variants including @agent-native, plan.agent-native,
+// and dotted TLD forms like agent-native.io that lookaround-based patterns missed.
 const FORBIDDEN = [
-  { label: "builder.io", re: /builder\.io/i },
-  { label: "builderio", re: /builderio/i },
-  // lookbehind/ahead so this does not double-match @agent-native / plan.agent-native
-  { label: "agent-native", re: /(?<![@.])agent-native(?!\.)/i },
-  { label: "@agent-native", re: /@agent-native/i },
-  { label: "plan.agent-native", re: /plan\.agent-native/i },
+  { label: "builder.io", re: /builder\.?io/i },
+  { label: "agent-native", re: /agent-native/i },
 ];
 
 // Lines a maintainer has deliberately allowed (e.g. one provenance attribution).
@@ -67,15 +67,13 @@ async function main() {
       if (err.code !== "ENOENT") throw err;
     }
   }
-  if (failures.length) {
-    console.error("Builder/agent-native references found:\n" + failures.map((f) => `  ${f}`).join("\n"));
-    process.exitCode = 1;
-  } else {
-    console.log("No Builder/agent-native references found.");
-  }
+  reportResult(failures, {
+    header: "Builder/agent-native references found:",
+    ok: "No Builder/agent-native references found.",
+  });
 }
 
 // Only run the filesystem scan when executed directly, not when imported by tests.
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (isMain(import.meta.url)) {
   await main();
 }

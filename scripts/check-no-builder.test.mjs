@@ -4,10 +4,10 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { findForbidden } from "./check-no-builder.mjs";
 
-test("flags agent-native references", () => {
+test("flags @agent-native reference (collapsed to agent-native label)", () => {
   assert.deepEqual(
     findForbidden("install with npx @agent-native/skills@latest add"),
-    ["@agent-native"],
+    ["agent-native"],
   );
 });
 
@@ -15,11 +15,22 @@ test("flags a bare agent-native reference", () => {
   assert.deepEqual(findForbidden("the agent-native framework path"), ["agent-native"]);
 });
 
-test("flags builder.io and plan.agent-native and builderio", () => {
+test("flags dotted agent-native forms (regression: dotted hole closed)", () => {
+  assert.deepEqual(
+    findForbidden("see agent-native.io and agent-native.dev"),
+    ["agent-native"],
+  );
+});
+
+test("flags builder.io and agent-native together", () => {
   assert.deepEqual(
     findForbidden("see builder.io and plan.agent-native.com and BuilderIO").sort(),
-    ["builder.io", "builderio", "plan.agent-native"].sort(),
+    ["agent-native", "builder.io"].sort(),
   );
+});
+
+test("flags BuilderIO as builder.io", () => {
+  assert.deepEqual(findForbidden("just BuilderIO here"), ["builder.io"]);
 });
 
 test("allows clean text", () => {
