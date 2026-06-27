@@ -228,6 +228,14 @@ visual density. Before authoring ANY wireframe / screen, READ
 `references/wireframe.md` in this skill directory — it is the source of truth for
 HTML wireframe quality. Do not author wireframes from memory.
 
+## Canvas layout — read `references/canvas.md`
+
+When a plan benefits from a top storyboard/canvas (one frame per user-visible
+state), the canvas is just a horizontal row of wireframe panels in plain
+HTML/CSS. `references/canvas.md` owns the layout rules: one artboard per state,
+laying out mixed-width surfaces, annotation placement, and keeping product
+screens separate from explanatory diagrams. Read it before authoring a canvas.
+
 ## Document quality — read `references/document-quality.md`
 
 The document is a serious technical plan, not marketing: outcome-first,
